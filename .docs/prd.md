@@ -1,4 +1,4 @@
-# PRD - Clima
+# PRD - Climora
 
 ## 1. Visão geral
 

@@ -1,4 +1,4 @@
-# Tasks de implementação - Clima
+# Tasks de implementação - Climora
 
 Este documento organiza a execução incremental do projeto com base na PRD em [prd.md](prd.md). Ele foi estruturado em fases para facilitar a entrega por agentes de IA, mantendo a PRD como fonte de verdade dos requisitos e evitando duplicação de informação.
 
@@ -40,46 +40,46 @@ Referência PRD: [prd.md](prd.md) - Instruções visuais e requisitos funcionais
 
 ### Tarefa 3 - Implementar a lógica de busca por cidade
 
-- [ ] Criar a função responsável por montar a URL da API de geocodificação.
-- [ ] Fazer a requisição à OpenMeteo usando o nome da cidade digitado.
-- [ ] Validar se o campo foi preenchido antes de executar a busca.
-- [ ] Extrair os dados relevantes da resposta: `name`, `latitude`, `longitude`, `country_code` e `timezone`.
-- [ ] Tratar o caso de cidade não encontrada.
+- [x] Criar a função responsável por montar a URL da API de geocodificação.
+- [x] Fazer a requisição à OpenMeteo usando o nome da cidade digitado.
+- [x] Validar se o campo foi preenchido antes de executar a busca.
+- [x] Extrair os dados relevantes da resposta: `name`, `latitude`, `longitude`, `country_code` e `timezone`.
+- [x] Tratar o caso de cidade não encontrada.
 
 Critério de aprovação:
 
-- A busca não é executada com texto vazio.
-- Quando a cidade existe, os dados corretos da localização são extraídos.
-- Quando a cidade não existe, a aplicação mostra uma mensagem clara e não quebra a UI.
+- [x] A busca não é executada com texto vazio.
+- [x] Quando a cidade existe, os dados corretos da localização são extraídos.
+- [x] Quando a cidade não existe, a aplicação mostra uma mensagem clara e não quebra a UI.
 
 Referência PRD: [prd.md](prd.md) - Busca por cidade, consulta de localização e tratamento de erros.
 
 ### Tarefa 4 - Implementar a consulta do clima
 
-- [ ] Criar a função que monta a URL da API de previsão usando latitude, longitude e timezone.
-- [ ] Fazer a requisição na API de clima da OpenMeteo.
-- [ ] Extrair os campos principais da resposta: temperatura, sensação térmica, umidade, vento, precipitação, probabilidade de chuva e código do clima.
-- [ ] Incluir o horário atual e o status de dia/noite quando disponível.
+- [x] Criar a função que monta a URL da API de previsão usando latitude, longitude e timezone.
+- [x] Fazer a requisição na API de clima da OpenMeteo.
+- [x] Extrair os campos principais da resposta: temperatura, sensação térmica, umidade, vento, precipitação, probabilidade de chuva e código do clima.
+- [x] Incluir o horário atual e o status de dia/noite quando disponível.
 
 Critério de aprovação:
 
-- A aplicação consulta a API de clima somente após a localização ser resolvida corretamente.
-- Os dados exibidos correspondem aos campos relevantes da resposta da API.
-- A lógica funciona mesmo quando a resposta for parcial ou incompleta.
+- [x] A aplicação consulta a API de clima somente após a localização ser resolvida corretamente.
+- [x] Os dados exibidos correspondem aos campos relevantes da resposta da API.
+- [x] A lógica funciona mesmo quando a resposta for parcial ou incompleta.
 
 Referência PRD: [prd.md](prd.md) - Consulta de clima, fluxo de dados e mapeamento de campos.
 
 ### Tarefa 5 - Traduzir o código de clima para texto legível
 
-- [ ] Definir um objeto ou função para transformar `weather_code` em texto legível.
-- [ ] Mapear os principais estados climáticos, como sol, nublado, chuva, tempestade, neve e neblina.
-- [ ] Exibir a descrição do clima na interface principal.
+- [x] Definir um objeto ou função para transformar `weather_code` em texto legível.
+- [x] Mapear os principais estados climáticos, como sol, nublado, chuva, tempestade, neve e neblina.
+- [x] Exibir a descrição do clima na interface principal.
 
 Critério de aprovação:
 
-- Cada código conhecido da API recebe uma descrição correta e amigável para o usuário.
-- A descrição aparece na tela junto com a temperatura e demais informações.
-- Códigos desconhecidos recebem tratamento seguro e não quebram a UI.
+- [x] Cada código conhecido da API recebe uma descrição correta e amigável para o usuário.
+- [x] A descrição aparece na tela junto com a temperatura e demais informações.
+- [x] Códigos desconhecidos recebem tratamento seguro e não quebram a UI.
 
 Referência PRD: [prd.md](prd.md) - Código do clima e regras de negócio sugeridas.
 
@@ -174,9 +174,9 @@ Referência PRD: [prd.md](prd.md) - Critérios de aceitação e requisitos funci
 
 ### Fase 2 - Integração com dados climáticos
 
-- [ ] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [x] Tarefa 3
+- [x] Tarefa 4
+- [x] Tarefa 5
 
 ### Fase 3 - Experiência visual do clima
 
