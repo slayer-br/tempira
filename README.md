@@ -63,6 +63,7 @@ src/
 │
 ├── style.css                  # Folha de estilo global com variáveis CSS e design tokens
 └── main.ts                    # Ponto de entrada (Bootstrap enxuto conectando UI aos serviços)
+```
 
 🚀 Tecnologias Utilizadas
 
