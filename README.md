@@ -1,18 +1,24 @@
 # ⛅ Tempira
 
-Uma aplicação web moderna, elegante e de alta precisão para consulta das condições meteorológicas em tempo real de qualquer cidade do mundo. Construída em **TypeScript puro (Vanilla)** com **Vite**, seguindo uma arquitetura desacoplada e padrões modernos de design mobile-first.
+Uma aplicação web moderna, elegante e de alta precisão para consulta das condições meteorológicas em tempo real de qualquer cidade do mundo. Construída em **TypeScript puro (Vanilla)** com **Vite**, seguindo uma arquitetura desacoplada, padrões de design mobile-first e integração contínua (CI/CD).
+
+> 🚀 **Acesse a aplicação no ar:** [https://slayer-br.github.io/tempira/](https://slayer-br.github.io/tempira/)
 
 ---
 
 ## ✨ Funcionalidades
 
-- 🔍 **Busca Inteligente de Localidades**: Converte o nome da cidade em coordenadas geográficas e fuso horário oficial de forma instantânea.
-- 🌡️ **Informações Climáticas em Tempo Real**:
-  - Temperatura atual com unidade oficial da API (`°C`).
-  - Sensação térmica aparente.
+- 🔍 **Busca Inteligente de Localidades**: Converte instantaneamente o nome da cidade em coordenadas geográficas, país e fuso horário oficial.
+- 🌡️ **Métricas Climáticas com Precisão Decimal (`pt-BR`)**:
+  - Temperatura atual com 1 casa decimal (`°C`).
+  - Sensação térmica aparente com 1 casa decimal.
   - Umidade relativa do ar (`%`).
   - Probabilidade e precipitação de chuva (`%` e `mm`).
-  - Velocidade e direção do vento convertida para 16 pontos cardeais em português (ex: `N`, `SSO`, `SE`).
+- 🧭 **Bússola Dinâmica & Direção do Vento**:
+  - Velocidade do vento com 1 casa decimal (`km/h`).
+  - Agulha de bússola vetorial que **rotaciona em tempo real** no ângulo exato do vento.
+  - Sigla do ponto cardeal e nome por extenso em português (ex: `Sul-Sudoeste (162°)`).
+  - Classificação de intensidade da brisa baseada na escala de Beaufort (*Calmo*, *Brisa suave*, *Vento moderado*, etc.).
 - ☀️/🌙 **Diferenciação Dia e Noite**: Ícones SVG dinâmicos e badges visuais que mudam de acordo com a incidência solar local (`is_day`).
 - 🎨 **Suporte Completo a Temas (Claro e Escuro)**:
   - Detecção automática da preferência do sistema operacional (`prefers-color-scheme`).
@@ -20,11 +26,11 @@ Uma aplicação web moderna, elegante e de alta precisão para consulta das cond
   - Persistência da preferência do usuário no `localStorage`.
 - 📱 **Design Mobile-First e Responsivo**:
   - Container centralizado com bordas arredondadas e largura máxima de 800px.
-  - Layout adaptável que se ajusta com perfeição de celulares a telas ultrawide.
+  - Layout adaptável que se ajusta com perfeição de celulares compactos a telas ultrawide.
 - 🛡️ **Experiência de Usuário Resiliente**:
   - Empty state inicial acolhedor e intuitivo.
-  - Tratamento elegante para cidades inexistentes ou sem dados.
-  - Indicador de carregamento (spinner) suave com bloqueio temporário de requisições simultâneas.
+  - Tratamento elegante para cidades inexistentes ou falhas de rede.
+  - Indicador de carregamento suave com bloqueio temporário de requisições simultâneas.
 
 ---
 
@@ -68,10 +74,11 @@ src/
 
 ## 🚀 Tecnologias Utilizadas
 
-- TypeScript: Tipagem estática rigorosa para garantir segurança e previsibilidade.
-- Vite: Ferramenta de build moderna e servidor de desenvolvimento ultrarrápido.
-- Vanilla CSS: CSS moderno com custom properties (variáveis CSS), flexbox, CSS grid e design tokens, sem dependência de frameworks externos.
-- Open-Meteo API: API meteorológica de código aberto e alta precisão (Geocoding API + Forecast API).
+- **[TypeScript](https://www.typescriptlang.org/)**: Tipagem estática rigorosa para garantir segurança e manutenibilidade.
+- **[Vite](https://vitejs.dev/)**: Ferramenta de build moderna e servidor de desenvolvimento ultrarrápido.
+- **[Vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)**: CSS moderno com custom properties (variáveis CSS), flexbox, CSS grid e design tokens, sem dependência de frameworks pesados.
+- **[Open-Meteo API](https://open-meteo.com/)**: API meteorológica gratuita de alta precisão (Geocoding API + Forecast API).
+- **[GitHub Actions](https://github.com/features/actions)**: Pipeline de CI/CD automatizado para build e deploy contínuo no GitHub Pages.
 
 ---
 
@@ -114,13 +121,14 @@ Os arquivos otimizados para distribuição serão gerados no diretório dist/.
 ```bash
 npm run preview
 ```
+
 ---
 
 ## 🌐 Integrações de API
-A aplicação consome dois serviços da Open-Meteo:
+A aplicação consome dois serviços da [Open-Meteo API](https://open-meteo.com/):
 
-Geocoding API: Converte o texto informado pelo usuário em latitude, longitude, país e timezone (America/Sao_Paulo, etc.).
-Forecast API: Retorna métricas meteorológicas instantâneas e unidades de medida com base nas coordenadas obtidas.
+1. **[Geocoding API](https://open-meteo.com/en/docs/geocoding-api)**: Converte o texto informado pelo usuário em latitude, longitude, país e timezone (America/Sao_Paulo, etc.).
+2. **[Forecast API](https://open-meteo.com/en/docs)**: Retorna métricas meteorológicas instantâneas e unidades de medida com base nas coordenadas obtidas.
 
 ---
 
