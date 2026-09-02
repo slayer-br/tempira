@@ -1,6 +1,6 @@
 import type { ThemeMode } from "../types/theme.types";
 
-const STORAGE_THEME_KEY = "climora_user_theme";
+const STORAGE_THEME_KEY = "tempira_user_theme";
 
 export interface ThemeServiceListener {
   (isLight: boolean): void;

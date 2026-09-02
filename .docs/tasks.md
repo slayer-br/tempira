@@ -1,4 +1,4 @@
-# Tasks de implementação - Climora
+# Tasks de implementação - Tempira
 
 Este documento organiza a execução incremental do projeto com base na PRD em [prd.md](prd.md) e nos requisitos originais de [brain-dump.md](brain-dump.md).
 

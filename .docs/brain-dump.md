@@ -1,4 +1,4 @@
-Projeto: Climora
+Projeto: Tempira
 
 Este projeto vai pegar a cidade e basedo nisso, consultar o clima daquela região, exibindo as principais informações de clima, temperatura, umidade e etc.
 

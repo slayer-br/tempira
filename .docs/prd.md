@@ -1,8 +1,8 @@
-# PRD - Climora
+# PRD - Tempira
 
 ## 1. Visão geral
 
-O **Climora** é uma aplicação web de clima em tempo real, desenvolvida em **Vite + Vanilla + TypeScript**, cujo objetivo é permitir que o usuário informe o nome de uma cidade e receba de forma rápida e intuitiva as condições climáticas atuais daquela região.
+O **Tempira** é uma aplicação web de clima em tempo real, desenvolvida em **Vite + Vanilla + TypeScript**, cujo objetivo é permitir que o usuário informe o nome de uma cidade e receba de forma rápida e intuitiva as condições climáticas atuais daquela região.
 
 O produto utiliza a API gratuita da OpenMeteo para:
 1. Buscar as coordenadas geográficas (latitude, longitude) e fuso horário (timezone) da cidade através do serviço de geocodificação.

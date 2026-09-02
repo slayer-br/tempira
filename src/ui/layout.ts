@@ -19,7 +19,7 @@ export function renderAppLayout(rootElement: HTMLElement): AppElements {
         <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
         </svg>
-        <span class="brand-title">Climora</span>
+        <span class="brand-title">Tempira</span>
       </div>
       <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Alternar tema claro e escuro">
         <svg id="theme-icon" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
