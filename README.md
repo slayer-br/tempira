@@ -64,15 +64,18 @@ src/
 ├── style.css                  # Folha de estilo global com variáveis CSS e design tokens
 └── main.ts                    # Ponto de entrada (Bootstrap enxuto conectando UI aos serviços)
 ```
+---
 
-🚀 Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
 - TypeScript: Tipagem estática rigorosa para garantir segurança e previsibilidade.
 - Vite: Ferramenta de build moderna e servidor de desenvolvimento ultrarrápido.
 - Vanilla CSS: CSS moderno com custom properties (variáveis CSS), flexbox, CSS grid e design tokens, sem dependência de frameworks externos.
 - Open-Meteo API: API meteorológica de código aberto e alta precisão (Geocoding API + Forecast API).
 
-📦 Como Executar o Projeto Localmente
+---
+
+## 📦 Como Executar o Projeto Localmente
 
 Pré-requisitos
 - Node.js instalado (versão 18 ou superior recomendada).
@@ -111,12 +114,15 @@ Os arquivos otimizados para distribuição serão gerados no diretório dist/.
 ```bash
 npm run preview
 ```
+---
 
-🌐 Integrações de API
+## 🌐 Integrações de API
 A aplicação consome dois serviços da Open-Meteo:
 
 Geocoding API: Converte o texto informado pelo usuário em latitude, longitude, país e timezone (America/Sao_Paulo, etc.).
 Forecast API: Retorna métricas meteorológicas instantâneas e unidades de medida com base nas coordenadas obtidas.
 
-📄 Licença
+---
+
+## 📄 Licença
 Este projeto está sob a licença MIT.
