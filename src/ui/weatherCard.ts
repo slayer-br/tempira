@@ -15,8 +15,8 @@ export function renderWeatherCard(
 ): void {
   const { current, units } = weatherResult;
   const isDay = current.is_day === 1;
-  const tempRounded = Math.round(current.temperature_2m);
-  const apparentTempRounded = Math.round(current.apparent_temperature);
+  const tempFormatted = current.temperature_2m.toFixed(1).replace(".", ",");
+  const apparentTempFormatted = current.apparent_temperature.toFixed(1).replace(".", ",");
   const wind = getWindDetails(current.wind_speed_10m, current.wind_direction_10m);
   const weatherDesc = getWeatherDescription(current.weather_code);
   const weatherIcon = getWeatherIconSvg(current.weather_code, current.is_day);
@@ -42,7 +42,7 @@ export function renderWeatherCard(
 
         <div class="weather-hero">
           <div class="temperature-wrapper">
-            <span class="temp-num">${tempRounded}</span>
+            <span class="temp-num">${tempFormatted}</span>
             <span class="temp-deg">${escapeHtml(units.temperature_2m || "°C")}</span>
           </div>
           <div class="weather-icon-wrapper">
@@ -86,7 +86,7 @@ export function renderWeatherCard(
             <div class="metric-info">
               <span class="metric-label">Sensação Térmica</span>
               <div class="metric-val-row">
-                <span class="metric-value">${apparentTempRounded}</span>
+                <span class="metric-value">${apparentTempFormatted}</span>
                 <span class="metric-unit">${escapeHtml(units.apparent_temperature || "°C")}</span>
               </div>
             </div>

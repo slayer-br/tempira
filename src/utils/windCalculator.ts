@@ -26,7 +26,7 @@ export const COMPASS_POINTS: readonly CompassPoint[] = [
 ] as const;
 
 export interface WindDetails {
-  speed: number;
+  speed: string;
   degrees: number;
   abbr: string;
   fullName: string;
@@ -63,7 +63,7 @@ export function getWindDetails(speedKmH: number, degrees: number): WindDetails {
   const point = COMPASS_POINTS[index] || { abbr: "N", name: "Norte" };
 
   return {
-    speed: Math.round(speedKmH),
+    speed: speedKmH.toFixed(1).replace(".", ","),
     degrees: Math.round(normalized),
     abbr: point.abbr,
     fullName: point.name,
