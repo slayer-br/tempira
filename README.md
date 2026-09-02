@@ -1,4 +1,4 @@
-# ⛅ Climora
+# ⛅ Tempira
 
 Uma aplicação web moderna, elegante e de alta precisão para consulta das condições meteorológicas em tempo real de qualquer cidade do mundo. Construída em **TypeScript puro (Vanilla)** com **Vite**, seguindo uma arquitetura desacoplada e padrões modernos de design mobile-first.
 
