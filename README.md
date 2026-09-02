@@ -125,4 +125,4 @@ Forecast API: Retorna métricas meteorológicas instantâneas e unidades de medi
 ---
 
 ## 📄 Licença
-Este projeto está sob a licença MIT.
+Este projeto está sob a [Licença MIT](LICENSE).
