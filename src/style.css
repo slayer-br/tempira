@@ -198,7 +198,7 @@ body {
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
 }
 
-.city-input:focus + .search-icon {
+.city-input:focus+.search-icon {
   color: var(--accent-primary);
 }
 
@@ -551,7 +551,8 @@ body {
 
 .metric-val-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 6px;
 }
 
@@ -567,15 +568,50 @@ body {
   color: var(--text-secondary);
 }
 
-.wind-direction-tag {
+/* --- Melhorias na Apresentação do Vento (Bússola e Subtítulo) --- */
+.wind-direction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 6px;
-  background: var(--badge-bg);
-  color: var(--badge-text);
-  margin-left: 4px;
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
+
+.wind-compass-arrow {
+  width: 14px;
+  height: 14px;
+  color: #38bdf8;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center center;
+  display: inline-block;
+}
+
+.wind-subinfo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.wind-dot {
+  opacity: 0.6;
+}
+
+.wind-intensity {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 
 /* =========================================================
    MEDIA QUERY: Telas Médias e Desktop (768px+) -> MOBILE FIRST
@@ -640,6 +676,7 @@ body {
     opacity: 0;
     transform: translateY(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -661,6 +698,7 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

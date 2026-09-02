@@ -1,37 +1,72 @@
+export interface CompassPoint {
+  abbr: string;
+  name: string;
+}
+
 /**
- * Mapeamento dos 16 pontos cardeais e colaterais em português (pt-BR).
+ * Mapeamento dos 16 pontos cardeais e colaterais com nome por extenso em português.
  */
-export const WIND_COMPASS_POINTS = [
-  "N",
-  "NNE",
-  "NE",
-  "ENE",
-  "E",
-  "ESE",
-  "SE",
-  "SSE",
-  "S",
-  "SSO",
-  "SO",
-  "OSO",
-  "O",
-  "ONO",
-  "NO",
-  "NNO",
+export const COMPASS_POINTS: readonly CompassPoint[] = [
+  { abbr: "N", name: "Norte" },
+  { abbr: "NNE", name: "Norte-Nordeste" },
+  { abbr: "NE", name: "Nordeste" },
+  { abbr: "ENE", name: "Leste-Nordeste" },
+  { abbr: "E", name: "Leste" },
+  { abbr: "ESE", name: "Leste-Sudeste" },
+  { abbr: "SE", name: "Sudeste" },
+  { abbr: "SSE", name: "Sul-Sudeste" },
+  { abbr: "S", name: "Sul" },
+  { abbr: "SSO", name: "Sul-Sudoeste" },
+  { abbr: "SO", name: "Sudoeste" },
+  { abbr: "OSO", name: "Oeste-Sudoeste" },
+  { abbr: "O", name: "Oeste" },
+  { abbr: "ONO", name: "Oeste-Noroeste" },
+  { abbr: "NO", name: "Noroeste" },
+  { abbr: "NNO", name: "Norte-Noroeste" },
 ] as const;
 
+export interface WindDetails {
+  speed: number;
+  degrees: number;
+  abbr: string;
+  fullName: string;
+  intensity: string;
+}
+
 /**
- * Converte a direção do vento de graus (0 a 360) para o ponto da bússola correspondente.
- * @param degrees Direção em graus
- * @returns Sigla do ponto cardeal (ex: "N", "SSO", "SE")
+ * Classifica a intensidade do vento com base em uma escala simplificada de Beaufort.
+ */
+export function getWindIntensityText(speedKmH: number): string {
+  if (speedKmH < 6) return "Calmo";
+  if (speedKmH < 20) return "Brisa suave";
+  if (speedKmH < 39) return "Vento moderado";
+  if (speedKmH < 62) return "Vento forte";
+  return "Ventania";
+}
+
+/**
+ * Converte graus para a sigla do ponto cardeal correspondente (retrocompatibilidade).
  */
 export function getWindDirectionText(degrees: number): string {
-  if (typeof degrees !== "number" || isNaN(degrees)) {
-    return "N";
-  }
-
-  // Normaliza graus negativos ou maiores que 360
   const normalized = ((degrees % 360) + 360) % 360;
   const index = Math.round(normalized / 22.5) % 16;
-  return WIND_COMPASS_POINTS[index] || "N";
+  return COMPASS_POINTS[index]?.abbr || "N";
+}
+
+/**
+ * Consolida todas as métricas detalhadas de vento.
+ */
+export function getWindDetails(speedKmH: number, degrees: number): WindDetails {
+  const safeDegrees = typeof degrees === "number" && !isNaN(degrees) ? degrees : 0;
+  const normalized = ((safeDegrees % 360) + 360) % 360;
+  const index = Math.round(normalized / 22.5) % 16;
+  const point = COMPASS_POINTS[index] || { abbr: "N", name: "Norte" };
+
+  return {
+    speed: Math.round(speedKmH),
+    degrees: Math.round(normalized),
+    abbr: point.abbr,
+    fullName: point.name,
+    intensity: getWindIntensityText(speedKmH),
+  };
 }

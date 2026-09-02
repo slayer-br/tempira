@@ -1,7 +1,7 @@
 import type { GeoLocation } from "../types/geo.types";
 import type { WeatherResult } from "../types/weather.types";
 import { formatCurrentDate } from "../utils/dateFormatter";
-import { getWindDirectionText } from "../utils/windCalculator";
+import { getWindDetails } from "../utils/windCalculator";
 import { getWeatherDescription, getWeatherIconSvg } from "../utils/weatherCodes";
 import { escapeHtml } from "../utils/domUtils";
 
@@ -17,8 +17,7 @@ export function renderWeatherCard(
   const isDay = current.is_day === 1;
   const tempRounded = Math.round(current.temperature_2m);
   const apparentTempRounded = Math.round(current.apparent_temperature);
-  const windSpeedRounded = Math.round(current.wind_speed_10m);
-  const windDirText = getWindDirectionText(current.wind_direction_10m);
+  const wind = getWindDetails(current.wind_speed_10m, current.wind_direction_10m);
   const weatherDesc = getWeatherDescription(current.weather_code);
   const weatherIcon = getWeatherIconSvg(current.weather_code, current.is_day);
   const formattedDate = formatCurrentDate(current.time);
@@ -112,8 +111,8 @@ export function renderWeatherCard(
             </div>
           </article>
 
-          <!-- Velocidade e Direção do Vento -->
-          <article class="metric-card">
+          <!-- Velocidade e Direção do Vento com Bússola -->
+          <article class="metric-card metric-card-wind">
             <div class="metric-icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
@@ -124,9 +123,22 @@ export function renderWeatherCard(
             <div class="metric-info">
               <span class="metric-label">Vento</span>
               <div class="metric-val-row">
-                <span class="metric-value">${windSpeedRounded}</span>
+                <span class="metric-value">${wind.speed}</span>
                 <span class="metric-unit">${escapeHtml(units.wind_speed_10m || "km/h")}</span>
-                <span class="wind-direction-tag" title="Direção do vento">${windDirText}</span>
+                
+                <span class="wind-direction-badge" title="Direção: ${wind.fullName} (${wind.degrees}°)">
+                  <svg class="wind-compass-arrow" style="transform: rotate(${wind.degrees}deg);" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2L17.5 20.5L12 16.5L6.5 20.5L12 2Z" fill="currentColor" />
+                  </svg>
+                  <span>${wind.abbr}</span>
+                </span>
+              </div>
+              
+              <!-- Subtítulo informativo com nome por extenso e intensidade -->
+              <div class="wind-subinfo">
+                <span>${wind.fullName} (${wind.degrees}°)</span>
+                <span class="wind-dot">•</span>
+                <span class="wind-intensity">${wind.intensity}</span>
               </div>
             </div>
           </article>
